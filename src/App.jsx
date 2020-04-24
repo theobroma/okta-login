@@ -20,7 +20,7 @@ import CustomLoginComponent from './Login';
 import Messages from './Messages';
 import Navbar from './Navbar';
 import Profile from './Profile';
-
+import TestPage from './TestPage';
 
 const HasAccessToRouter = () => {
   const history = useHistory(); // example from react-router
@@ -31,10 +31,7 @@ const HasAccessToRouter = () => {
   };
 
   return (
-    <Security
-      {...config.oidc}
-      onAuthRequired={customAuthHandler}
-    >
+    <Security {...config.oidc} onAuthRequired={customAuthHandler}>
       <Navbar />
       <Container text style={{ marginTop: '7em' }}>
         <Route path="/" exact component={Home} />
@@ -42,6 +39,7 @@ const HasAccessToRouter = () => {
         <Route path="/login" component={CustomLoginComponent} />
         <SecureRoute path="/messages" component={Messages} />
         <SecureRoute path="/profile" component={Profile} />
+        <SecureRoute path="/testpage" component={TestPage} />
       </Container>
     </Security>
   );
